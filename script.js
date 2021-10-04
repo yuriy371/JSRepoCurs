@@ -1,3 +1,5 @@
+"use strict";
+
 let title = "JS";
 let screens = "Простые, Сложные, Интерактивные";
 let screenPrice = 35;
