@@ -8,9 +8,9 @@ let serviceAdd1 = prompt("Какой дополнительный тип усл�
 let serviceAddPrice1 = +prompt("Сколько это будет стоить?");
 let serviceAdd2 = prompt("Какой дополнительный тип услуги нужен?");
 let serviceAddPrice2 = +prompt("Сколько это будет стоить?");
-let fullPrice = screenPrice + serviceAddPrice1 + serviceAddPrice2;
+let fullPrice;
 let adaptive = confirm("Нужен ли адаптив на сайте?");
-let servicePercentPrice; //= fullPrice - (fullPrice * (rollback / 100));
+let servicePercentPrice;
 let allServicePrices;
 
 const showTypeOf = function (variable) {
@@ -47,7 +47,7 @@ function getFullPrice(screenPrice, allServicePrices) {
     fullPrice = screenPrice + allServicePrices
 }
 showTypeOf(title)
-showTypeOf(fullPrice)
+showTypeOf(screenPrice)
 showTypeOf(adaptive)
 
 getAllServicePrices(serviceAddPrice1, serviceAddPrice2)
