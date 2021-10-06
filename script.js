@@ -20,7 +20,8 @@ const asking = function () {
     screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные, Интерактивные")
 
     do {
-        screenPrice = prompt("Сколько будет стоить данная работа?", "15000")
+        screenPrice = prompt("Сколько будет стоить данная работа?", "  15000")
+        screenPrice = (typeof screenPrice === "string") ? screenPrice = +screenPrice : screenPrice = screenPrice
     } while (!isNumber(screenPrice))
 
     adaptive = confirm("Нужен ли адаптив на сайте?")
@@ -43,7 +44,7 @@ const getRollbackMessage = function (price) {
 }
 
 const getAllServicePrices = function () {
-    let sum = 0; 
+    let sum = 0
 
     for (let i = 0; i < 2; i++) {
         if (i === 0) {
@@ -52,13 +53,14 @@ const getAllServicePrices = function () {
             serviceAdd2 = prompt("Какой дополнительный тип услуги нужен?", "asd")
         }
 
-        let sumPrice 
+        let sumPrice
 
         while (!isNumber(sumPrice)) {
             sumPrice = prompt("Сколько это будет стоить?", "15000")
+            sumPrice = (typeof sumPrice === "string") ? sumPrice = +sumPrice : sumPrice = sumPrice
         }
 
-        sum += +sumPrice
+        sum += sumPrice
     }
 
     return sum
@@ -84,7 +86,7 @@ title = getTitle()
 servicePercentPrice = getServicePercentPrices()
 
 showTypeOf(title)
-showTypeOf(+screenPrice)
+showTypeOf(screenPrice)
 showTypeOf(adaptive)
 
 console.log('allServicePrices', allServicePrices);
