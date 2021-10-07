@@ -21,7 +21,7 @@ const asking = function () {
 
     do {
         screenPrice = prompt("Сколько будет стоить данная работа?", "  15000")
-        screenPrice = (typeof screenPrice === "string") ? screenPrice = +screenPrice : screenPrice = screenPrice
+        screenPrice = (typeof screenPrice === "string") ? +screenPrice : screenPrice
     } while (!isNumber(screenPrice))
 
     adaptive = confirm("Нужен ли адаптив на сайте?")
@@ -57,7 +57,7 @@ const getAllServicePrices = function () {
 
         while (!isNumber(sumPrice)) {
             sumPrice = prompt("Сколько это будет стоить?", "15000")
-            sumPrice = (typeof sumPrice === "string") ? sumPrice = +sumPrice : sumPrice = sumPrice
+            sumPrice = (typeof sumPrice === "string") ? +sumPrice : sumPrice
         }
 
         sum += sumPrice
