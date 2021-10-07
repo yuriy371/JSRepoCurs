@@ -1,18 +1,37 @@
 "use strict";
 
-let randomNum
+const isNumber = function (num) {
+    return !isNaN(parseFloat(num)) && isFinite(num)
+}
 
 function hiddenNum() {
-    randomNum = Math.ceil(Math.random()*100)
-    console.log(randomNum);
-}
-function  tryToGuess() {
-    let question = +prompt("Угадай число от 1 до 100")
-    console.log(question);
+    let randomNum = Math.ceil(Math.random() * 100)
+
+    function tryToGuess() {
+        let question = prompt("Угадай число от 1 до 100")
+
+        if (isNumber(question)) {
+            question = +question
+            if (randomNum < question) {
+                alert("Загаданное число меньше");
+                tryToGuess()
+            } else if (randomNum > question) {
+                alert("Загаданное число больше");
+                tryToGuess()
+            } else if (randomNum == question) {
+                alert("Поздравляю, Вы угадали!!!")
+            }
+        } else {
+            if (question === null) {
+                alert("Игра окончена")
+            } else {
+                alert("Введи число!");
+                tryToGuess()
+            }
+
+        }
+    }
+    tryToGuess()
 }
 
 hiddenNum()
-tryToGuess()
-
-console.log(randomNum);
-// console.log(Math.ceil(Math.random()*100));
