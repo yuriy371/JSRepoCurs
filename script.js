@@ -12,7 +12,7 @@ let servicePercentPrice;
 let allServicePrices;
 
 const isNumber = function (num) {
-    return !isNaN(parseFloat(num) && isFinite(num))
+    return !isNaN(parseFloat(num)) && isFinite(num)
 }
 
 const asking = function () {
