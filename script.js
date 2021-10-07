@@ -26,8 +26,8 @@ const asking = function () {
     adaptive = confirm("Нужен ли адаптив на сайте?")
 }
 
-const showTypeOf = function (variable) {
-    console.log(variable, typeof variable);
+const showTypeOf = function (val) {
+    console.log(val, typeof val);
 }
 
 const getRollbackMessage = function (price) {
