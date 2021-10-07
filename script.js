@@ -20,6 +20,8 @@ function hiddenNum() {
                 tryToGuess()
             } else if (randomNum == question) {
                 alert("Поздравляю, Вы угадали!!!")
+            } else {
+                alert("Что ты сделал???")
             }
         } else {
             if (question === null) {
