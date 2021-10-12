@@ -8,6 +8,11 @@ let number = document.querySelectorAll(".other-items.number")
 let rollbackInput = document.querySelector(".rollback [type='range']")
 let rollbackSpan = document.querySelector(".rollback .range-value")
 let total = document.getElementsByClassName("total-input")
+let totalCost = document.getElementsByClassName("total-input")[0]
+let totalScreens = document.getElementsByClassName("total-input")[1]
+let totalCostServices = document.getElementsByClassName("total-input")[2]
+let totalFullCost = document.getElementsByClassName("total-input")[3]
+let totalCostRollback = document.getElementsByClassName("total-input")[4]
 let screens = document.querySelectorAll(".screen")
 
 let appData = {
@@ -124,8 +129,9 @@ console.log(percent);
 console.log(number);
 console.log(rollbackInput);
 console.log(rollbackSpan);
-for (let i = 0; i < total.length; i++) {
-    const element = total[i];
-    console.log(element);
-}
+console.log(totalCost);
+console.log(totalScreens);
+console.log(totalCostServices);
+console.log(totalFullCost);
+console.log(totalCostRollback);
 console.log(screens);
