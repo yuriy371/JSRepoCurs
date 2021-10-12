@@ -1,5 +1,15 @@
 "use strict";
 
+let titleSite = document.getElementsByTagName("h1")[0]
+let calculateReset = document.getElementsByClassName("handler_btn")
+let plus = document.querySelector(".screen-btn")
+let percent = document.querySelectorAll(".other-items.percent")
+let number = document.querySelectorAll(".other-items.number")
+let rollbackInput = document.querySelector(".rollback [type='range']")
+let rollbackSpan = document.querySelector(".rollback .range-value")
+let total = document.getElementsByClassName("total-input")
+let screens = document.querySelectorAll(".screen")
+
 let appData = {
     title: "",
     screens: [],
@@ -106,3 +116,16 @@ let appData = {
 }
 
 appData.start()
+
+console.log(titleSite);
+console.log(calculateReset);
+console.log(plus);
+console.log(percent);
+console.log(number);
+console.log(rollbackInput);
+console.log(rollbackSpan);
+for (let i = 0; i < total.length; i++) {
+    const element = total[i];
+    console.log(element);
+}
+console.log(screens);
