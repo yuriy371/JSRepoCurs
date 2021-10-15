@@ -35,7 +35,7 @@ let appData = {
         appData.addTitle()
         calculate.addEventListener('click', appData.start)
         plus.addEventListener("click", appData.addScerenBlock)
-        rollbackInput.addEventListener("click", appData.checkRollback)
+        rollbackInput.addEventListener("input", appData.checkRollback)
 
         screensAll.addEventListener("change", appData.checkScreens)
 
