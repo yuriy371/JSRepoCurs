@@ -53,9 +53,18 @@ let appData = {
         // appData.logger()
         appData.showResult()
     },
+    showResult: function () {
+        totalCost.value = appData.screenPrice
+        totalCostServices.value = appData.servicePricesPercent + appData.servicePricesNumber
+        totalFullCost.value = appData.fullPrice
+        totalCostRollback.value = appData.servicePercentPrice
+        totalScreens.value = appData.totalScreen
+    },
     checkRollback: function () {
         rollbackSpan.innerHTML = rollbackInput.value + "%"
         appData.rollback = +rollbackInput.value
+        appData.servicePercentPrice = appData.fullPrice - (appData.fullPrice * (appData.rollback / 100))
+        totalCostRollback.value = appData.servicePercentPrice
     },
     checkScreens: function () {
         screens = document.querySelectorAll(".screen")
@@ -83,13 +92,7 @@ let appData = {
             calculate.disabled = ""
         }
     },
-    showResult: function () {
-        totalCost.value = appData.screenPrice
-        totalCostServices.value = appData.servicePricesPercent + appData.servicePricesNumber
-        totalFullCost.value = appData.fullPrice
-        totalCostRollback.value = appData.servicePercentPrice
-        totalScreens.value = appData.totalScreen
-    },
+    
     addScreens: function () {
         screens = document.querySelectorAll(".screen")
 
