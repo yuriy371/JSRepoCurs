@@ -5,8 +5,6 @@ let headerInput = document.querySelector(".header-input")
 let todoList = document.querySelector(".todo-list")
 let todoCompleted = document.querySelector(".todo-completed")
 
-let storage
-
 let toDoData = []
 
 let render = function () {
