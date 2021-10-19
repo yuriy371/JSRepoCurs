@@ -6,6 +6,7 @@ let todoList = document.querySelector(".todo-list")
 let todoCompleted = document.querySelector(".todo-completed")
 
 let toDoData = []
+// let toDoData = (!!localStorage.getItem("ToDoList")) ? localStorage.setItem("ToDoList", JSON.stringify([])) : JSON.parse(localStorage.getItem("ToDoList"))
 
 let render = function () {
     todoList.innerHTML = ""
@@ -38,8 +39,16 @@ let render = function () {
         })
 
     })
-    localStorage.setItem("ToDoList", JSON.stringify(toDoData))
+    locStorSet()
 }
+
+let locStorSet = function () {
+    return localStorage.setItem("ToDoList", JSON.stringify(toDoData))
+}
+
+// let locStorGet = function () {
+//     return localStorage.getItem("ToDoList")
+// }
 
 todoControl.addEventListener("submit", function (e) {
     e.preventDefault()
@@ -56,12 +65,12 @@ todoControl.addEventListener("submit", function (e) {
         toDoData.push(newToDo)
         render()
     }
-    localStorage.setItem("ToDoList", JSON.stringify(toDoData))
+    locStorSet()
 })
 
-if (localStorage.length == 0) {
-    localStorage.setItem("ToDoList", JSON.stringify(toDoData))
-} else {
+if (!!localStorage.getItem("ToDoList")) {
     toDoData = JSON.parse(localStorage.getItem("ToDoList"))
     render()
+} else {
+    locStorSet()
 }
