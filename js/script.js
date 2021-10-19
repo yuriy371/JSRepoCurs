@@ -19,9 +19,6 @@ let screens = document.querySelectorAll(".screen")
 let screensAll = document.querySelector("div.main-controls__views")
 let screenPerNum = [...percent, ...number]
 
-let lockInput = document.querySelectorAll("input[type=text]")
-let lockSelect = document.querySelectorAll("select")
-
 let appData = {
     title: "",
     screens: [],
