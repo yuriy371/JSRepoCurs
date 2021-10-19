@@ -19,8 +19,10 @@ let screens = document.querySelectorAll(".screen")
 let screensAll = document.querySelector("div.main-controls__views")
 let screenPerNum = [...percent, ...number]
 
-let lockInput = document.querySelectorAll("input[type=text]")
-let lockSelect = document.querySelectorAll("select")
+let cmsInput = document.querySelector("#cms-open")
+let hiddenCms = document.querySelector(".hidden-cms-variants")
+let cmsSelect = document.querySelector("#cms-select")
+let cms = document.querySelector(".cms input")
 
 let appData = {
     title: "",
@@ -43,6 +45,8 @@ let appData = {
         rollbackInput.addEventListener("input", appData.checkRollback.bind(appData))
 
         screensAll.addEventListener("change", this.checkScreens)
+        cmsInput.addEventListener("click", appData.cmsInput)
+        cmsSelect.addEventListener("change", appData.cmsSelect)
 
         calculate.disabled = "disabled"
 
@@ -65,6 +69,25 @@ let appData = {
         this.clearScreen()
         this.clearRollback()
         this.clearVlue()
+    },
+    cmsInput: function () {
+        if (cmsInput.checked === true) {
+            hiddenCms.style.display = "flex"
+        } else {
+            hiddenCms.style.display = "none"
+            cmsSelect.value = ""
+        }
+    },
+    cmsSelect: function () {
+        let hiddenOther
+
+        if (cmsSelect.value === "other") {
+            hiddenOther = hiddenCms.querySelector(".main-controls__input")
+            hiddenOther.style.display = "flex"
+        } else {
+            hiddenOther = hiddenCms.querySelector(".main-controls__input")
+            hiddenOther.style.display = "none"
+        }
     },
     clearTotal: function () {
         totalCost.value = 0
@@ -94,6 +117,11 @@ let appData = {
             input.checked = false
         })
 
+        cms.disabled = ""
+        cms.checked = false
+        hiddenCms.style.display = "none"
+        cmsSelect.value = ""
+        cmsSelect.disabled = ""
         calculate.style.display = "flex"
         reset.style.display = "none"
         calculate.disabled = "disabled"
@@ -118,7 +146,13 @@ let appData = {
     showResult: function () {
         totalCost.value = this.screenPrice
         totalCostServices.value = this.servicePricesPercent + this.servicePricesNumber
-        totalFullCost.value = this.fullPrice
+
+        if (cmsSelect.value === "50") {
+            totalFullCost.value = this.fullPrice + (this.fullPrice / 100 * cmsSelect.value)
+        } else {
+            totalFullCost.value = this.fullPrice
+        }
+
         totalCostRollback.value = this.servicePercentPrice
         totalScreens.value = this.totalScreen
     },
@@ -143,6 +177,8 @@ let appData = {
             input.disabled = "disabled"
         })
 
+        cms.disabled = "disabled"
+        cmsSelect.disabled = "disabled"
         calculate.style.display = "none"
         reset.style.display = "flex"
     },
