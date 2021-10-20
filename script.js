@@ -1,28 +1,49 @@
 "use strict"
 
-function DomElement(selector, height, width, bg, fontSize) {
-    this.selector = selector
-    this.height = height
-    this.width = width
-    this.bg = bg
-    this.fontSize = fontSize
+document.addEventListener("DOMContentLoaded", () => {
+    let div
+    let topPos = 0
+    let leftPos = 0
 
-    this.createElem = function () {
-        if (this.selector.charAt() === ".") {
-            let div = document.createElement('div');
-            div.className = "selector";
-            div.innerHTML = "Ленин"
-            div.style.cssText = "height:" + this.height + "px; width:" + this.width + "px; background:" + this.bg + "; font-size:" + this.fontSize + "px;"
-            document.body.append(div)
-        } else if (this.selector.charAt() === "#") {
-            let p = document.createElement('p');
-            p.id = "selector";
-            p.innerHTML = "Ленин"
-            p.style.cssText = "height:" + this.height + "px; width:" + this.width + "px; background:" + this.bg + "; font-size:" + this.fontSize + "px;"
-            document.body.append(p)
+    document.addEventListener("keydown", keyDown)
+
+    function keyDown(e) {
+        if (e.key === "ArrowUp") {
+            topPos -= 10;
+            div.style.top = `${topPos}px`
+        }
+        if (e.key === "ArrowDown") {
+            topPos += 10;
+            div.style.top = `${topPos}px`
+        }
+        if (e.key === "ArrowLeft") {
+            leftPos -= 10;
+            div.style.left = `${leftPos}px`
+        }
+        if (e.key === "ArrowRight") {
+            leftPos += 10;
+            div.style.left = `${leftPos}px`
         }
     }
-}
 
-let creatDom = new DomElement('.block', 64, 200, "red", 64)
-creatDom.createElem()
+    function DomElement(height, width, background, position) {
+        this.height = height;
+        this.width = width;
+        this.background = background;
+        this.position = position;
+
+        this.createElem = function () {
+            div = document.createElement('div');
+            div.className = 'block';
+            div.style.cssText = `
+            height: ${this.height}px;
+            width: ${this.width}px;
+            background-color: ${this.background};
+            position: ${this.position};`
+            document.body.append(div)
+        }
+    }
+
+    let creatDom = new DomElement(100, 100, 'green', 'absolute')
+    creatDom.createElem()
+})
