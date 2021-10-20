@@ -26,10 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function DomElement(height, width, background, position) {
+    function DomElement(height, width, bg, position) {
         this.height = height;
         this.width = width;
-        this.background = background;
+        this.bg = bg;
         this.position = position;
 
         this.createElem = function () {
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             div.style.cssText = `
             height: ${this.height}px;
             width: ${this.width}px;
-            background-color: ${this.background};
+            background: ${this.bg};
             position: ${this.position};`
             document.body.append(div)
         }
