@@ -48,29 +48,29 @@ document.addEventListener("DOMContentLoaded", () => {
         this.width = width;
         this.bg = bg;
         this.position = position;
+    }
 
-        this.createElem = function () {
-            if (this.selector.charAt(0) === ".") {
-                div = document.createElement('div');
-                div.className = this.selector
-                div.style.cssText = `
+    DomElement.prototype.createElem = function () {
+        if (this.selector.charAt(0) === ".") {
+            div = document.createElement('div');
+            div.className = this.selector
+            div.style.cssText = `
                 height: ${this.height}px;
                 width: ${this.width}px;
                 background: ${this.bg};
                 position: ${this.position};`
-                document.body.append(div)
-            } else if (this.selector.charAt(0) === "#") {
-                p = document.createElement('p');
-                p.className = this.selector
-                p.style.cssText = `
+            document.body.append(div)
+        } else if (this.selector.charAt(0) === "#") {
+            p = document.createElement('p');
+            p.className = this.selector
+            p.style.cssText = `
                 height: ${this.height}px;
                 width: ${this.width}px;
                 background: ${this.bg};
                 position: ${this.position};`
-                document.body.append(p)
-            } else {
-                console.log("не точка и не хэштег");
-            }
+            document.body.append(p)
+        } else {
+            console.log("не точка и не хэштег");
         }
     }
 
