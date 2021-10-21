@@ -8,9 +8,9 @@ function DomElement(selector, height, width, bg, fontSize) {
     this.fontSize = fontSize
 
     this.createElem = function () {
-        if (this.selector.charAt() === ".") {
+        if (this.selector.charAt(0) === ".") {
             let div = document.createElement('div');
-            div.className = "selector";
+            div.className = this.selector;
             div.innerHTML = "Ленин"
             div.style.cssText = `
             height: ${this.height}px;
@@ -18,9 +18,9 @@ function DomElement(selector, height, width, bg, fontSize) {
             background: ${this.bg};
             font-size: ${this.fontSize}px;`
             document.body.append(div)
-        } else if (this.selector.charAt() === "#") {
+        } else if (this.selector.charAt(0) === "#") {
             let p = document.createElement('p');
-            p.id = "selector";
+            p.id = this.selector;
             p.innerHTML = "Ленин"
             p.style.cssText = `
             height: ${this.height}px;
@@ -28,11 +28,12 @@ function DomElement(selector, height, width, bg, fontSize) {
             background: ${this.bg};
             font-size: ${this.fontSize}px;`
             document.body.append(p)
-            console.log("не точка");
+            
+        } else {
+            console.log("не точка и не хэштег");
         }
     }
 }
 
-let creatDom = new DomElement('.block', 64, 200, "red", 64)
-creatDom.selector = '.block'
+let creatDom = new DomElement('#block', 64, 200, "red", 64)
 creatDom.createElem()
