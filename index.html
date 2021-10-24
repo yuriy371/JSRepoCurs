@@ -6,12 +6,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-
+    <script src="./script.js" defer></script>
     <title>Listeners</title>
 </head>
 
 <body>
-    <script src="./script.js"></script>
+    <main class="main">
+        <section class="form" id="form">
+            <form class="control">
+                <div class="person-info">
+                    <input class="input-inf" type="text" name="name" id="name" placeholder="Имя">
+                    <input class="input-inf" type="text" name="surname" id="surname" placeholder="Фамилия">
+                    <input class="input-inf" type="text" name="age" id="age" placeholder="Возраст">
+                </div>
+                <div class="prof-info">
+                    <select class="select-inf" name="position" id="position">
+                        <option value="" selected>Выберите должность</option>
+                        <option value="Locksmith">Слесарь</option>
+                        <option value="Driver">Водитель</option>
+                        <option value="Plumber">Водопроводчик</option>
+                        <option value="Electrician">Электрик</option>
+                        <option value="Welder">Сварщик</option>
+                    </select>
+                    <input class="input-inf" type="text" name="organization" id="organization"
+                        placeholder="Организация">
+                    <input class="input-inf" type="text" name="discharge" id="discharge" placeholder="Разряд">
+                </div>
+                <div class="other-info">
+                    <span>Наличие дитей <input type="checkbox" name="presence-children" id="presence-children"></span>
+                    <span>Дата принятия на работу <input class="input-inf" type="date" name="date-hiring"
+                            id="date-hiring"></span>
+                </div>
+                <button class="btn-save" id="btn-save">Сохранить</button>
+            </form>
+        </section>
+        <section class="table" id="table">
+            <table class="table-all">
+                <thead class="heading">
+                    <tr>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Возраст</th>
+                        <th>Должность</th>
+                        <th>Организация</th>
+                        <th>Разряд</th>
+                        <th>Наличие детей</th>
+                        <th>Дата принятия на работу </th>
+                        <th>Очистить</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+
+                </tbody>
+            </table>
+        </section>
+    </main>
 </body>
 
 </html>

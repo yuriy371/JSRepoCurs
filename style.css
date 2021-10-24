@@ -1,71 +1,53 @@
-main {
+.main {
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
     align-items: center;
-    padding-top: 20px;
-}
-
-.controls {
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-span {
-    height: 20px;
-    line-height: 20px;
-}
-
-button {
-    padding: 15px 40px;
-    text-transform: uppercase;
-    cursor: pointer;
-    background-color: orange;
-}
-
-input[type=range] {
-    width: 200px;
-    cursor: pointer;
-}
-
-input[type=text] {
-    padding: 5px;
-}
-
-a {
-    text-decoration: none;
-    color: rebeccapurple;
-    font-weight: bold;
     font-size: 20px;
-    transition: .3s;
 }
-
-a:hover {
-    color: red;
+.control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 20px 0;
 }
-
-#square {
+.person-info {
+    padding: 10px 0;
+}
+.person-info input {
     width: 200px;
-    height: 200px;
-    border: 1px solid #000;
-    background-color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 20px;
 }
-
-#circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 1px solid #000;
-    background-color: yellow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.prof-info {
+    padding: 10px 0;
 }
-
-.green {
-    background-color: green !important;
+.prof-info input,
+select {
+    width: 200px;
+    height: 20px;
+}
+.other-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.other-info span {
+    padding: 0 5px;
+}
+.btn-save {
+    width: 100px;
+    height: 40px;
+}
+.btn-del {
+    /* background: #fff; */
+    /* border: 2px #f9c941 solid; */
+}
+table {
+    border: 1px solid #000;
+}
+th{
+    border: 1px solid #000;
+}
+td{
+    border: 1px solid #000;
 }
